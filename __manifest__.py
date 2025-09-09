@@ -4,6 +4,7 @@
     'version': '1.0',
     'category': 'Workshop',
     'author': 'Arib Ansari',
+    'depends': ['website_sale'],
     'assets': {},
     'installable': True,
     'application': False,
