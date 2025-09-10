@@ -11,7 +11,7 @@ from odoo.fields import Command
 #        is correctly linked.
 # 
 # Helpers -
-#   To create a product and tag:
+#   To create a product and tag you can use:
 #     ```
 #     product_tag = self.env['product.tag'].create({'name': 'Test Tag'})
 #     product = self.env['product.product'].create({
@@ -20,6 +20,17 @@ from odoo.fields import Command
 #         'all_product_tag_ids': [product_tag.id],
 #     })
 #     ```
+# 
+# Facilitator Notes - 
+#   Objective of this exercise:
+#   - Use lifecycle methods to perform common setup once (setUpClass) 
+#     instead of repeating the same product creation logic in every test.
+#     (Show different lifecycle methods from ./test_01_helper.py)
+#
+#   - Use Command helpers (Command.create, Command.update, Command.unlink) 
+#     when working with x2many fields instead of writing IDs directly.
+#     (List reasons why we have to use this)
+# 
 
 class TestProductBasics(TransactionCase):
 
