@@ -51,16 +51,6 @@ from odoo.exceptions import UserError
 
 class TestInvoicePostAction(TransactionCase):
 
-    def test_post_invoice_without_lines(self):
-        partner = self.env['res.partner'].create({'name': 'partner_a'})
-        invoice = self.env['account.move'].create({
-            'move_type': 'out_invoice',
-            'partner_id': partner.id,
-        })
-
-        with self.assertRaises(UserError):
-            invoice.action_post()
-
     def test_post_invoice_with_line(self):
         partner = self.env['res.partner'].create({'name': 'partner_a'})
         product = self.env['product.product'].create({'name': 'Workshop Product'})
@@ -75,3 +65,13 @@ class TestInvoicePostAction(TransactionCase):
         })
         invoice.action_post()
         self.assertEqual(invoice.state, 'posted')
+
+    def test_post_invoice_without_lines(self):
+        partner = self.env['res.partner'].create({'name': 'partner_a'})
+        invoice = self.env['account.move'].create({
+            'move_type': 'out_invoice',
+            'partner_id': partner.id,
+        })
+
+        with self.assertRaises(UserError):
+            invoice.action_post()
