@@ -5,10 +5,10 @@ from odoo.fields import Command
 # 
 # Statement -
 #   Write two tests on a product:
-#     1. Verify that when you set the product’s list price, the field is stored
-#        correctly.
-#     2. Verify that when you assign the tag to a product to a category, the tag
-#        is correctly linked.
+#     1. Verify that when you create a product with listing price, the field is
+#        stored correctly.
+#     2. Verify that when you add some tag on a product, the tag is correctly
+#        linked.
 # 
 # Helpers -
 #   To create a product and tag you can use:
